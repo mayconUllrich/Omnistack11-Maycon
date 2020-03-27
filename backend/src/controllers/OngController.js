@@ -11,7 +11,7 @@ module.exports = {
   async create (req,res) {
 
     const data = req.body // para pegar o corpo da requisição
-    const { name, email, whatsapp, city, uf} = req.body // desestruturação
+    const { name, email, whatsapp, city, uf} = data // desestruturação
     
     // criar o ID usando o Pacote crypto criando uma string aleatoria
     const id = crypto.randomBytes(4).toString('HEX')
@@ -26,6 +26,6 @@ module.exports = {
       uf,
     })
   
-    return res.json( id )
+    return res.json({ id })
   }
 }
